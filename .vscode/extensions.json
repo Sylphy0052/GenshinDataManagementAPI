@@ -1,0 +1,22 @@
+{
+    "recommendations": [
+        "jebbs.plantuml",
+        "njpwerner.autodocstring",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "trixnz.go-to-method",
+        "oderwat.indent-rainbow",
+        "ms-python.isort",
+        "yzhang.markdown-all-in-one",
+        "ms-python.mypy-type-checker",
+        "christian-kohler.path-intellisense",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "njqdev.vscode-python-typehint",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "alexcvzz.vscode-sqlite",
+        "shardulm94.trailing-spaces",
+        "mosapride.zenkaku",
+        "ms-vscode-remote.remote-containers"
+    ]
+}
