@@ -1,0 +1,137 @@
+@startuml er-diagram
+hide circle
+
+entity "Characters(キャラ)" as characters {
+    * <<PK>> id : number <<generated>> : キャラID
+    --
+    * name : string : キャラの名前
+    * <<FK>> element_id : number : 属性ID
+    * <<FK>> weapon_type_id : number : 武器種ID
+    * quality: number : レア度
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "Weapons(武器)" as weapons {
+    * <<PK>> id : number <<generated>> : 武器ID
+    --
+    * name : string : 武器の名前
+    * <<FK>> weapon_type_id : number : 武器種ID
+    * quality: number : レア度
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "Artifacts(装備)" as artifacts {
+    * <<PK>> id : number <<generated>> : 装備ID
+    --
+    * set_name : string : シリーズ名
+    * <<FK>> artifact_type_id : number : 部位ID
+    * quality: number : レア度
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "Elements(属性)" as elements {
+    * <<PK>> id : number <<generated>> : 属性ID
+    --
+    * name : string : 属性名
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "WeaponTypes(武器種)" as weapon_types {
+    * <<PK>> id : number <<generated>> : 武器種ID
+    --
+    * name : string : 武器種名
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "ArtifactTypes(装備部位)" as artifact_types {
+    * <<PK>> id : number <<generated>> : 部位ID
+    --
+    * name : string : 部位名
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "Status(装備ステータス種別)" as status {
+    * <<PK>> id : number <<generated>> : 装備ステータス種別ID
+    --
+    * name : string : ステータス名
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "Users(ユーザ)" as users {
+    * <<PK>> id : number <<generated>> : ユーザID
+    --
+    * name : string : ユーザ名
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "UserCharacters(ユーザのキャラクター情報)" as user_characters {
+    * <<FK>> user_id : number : ユーザID
+    * <<FK>> character_id : number : キャラクターID
+    --
+    * level : number : キャラレベル
+    * skill_level1 : number : スキル1のレベル
+    * skill_level2 : number : スキル2のレベル
+    * skill_level3 : number : スキル3のレベル
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "UserWeapons(ユーザの武器情報)" as user_weapons {
+    * <<FK>> user_id : number : ユーザID
+    * <<FK>> weapon_id : number : 武器ID
+    --
+    * level : number : 武器レベル
+    * rank : number : 精錬ランク
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "UserArtifacts(ユーザの装備情報)" as user_artifacts {
+    * <<PK>> id : number <<generated>> : ユーザの装備情報ID
+    --
+    * <<FK>> user_id : number : ユーザID
+    * <<FK>> artifact_id : number : 装備ID
+    * quality : number : レア度
+    * level : number : 装備レベル
+    * created_at: date : 作成日時
+    * updated_at : date : 更新日時
+}
+
+entity "UserArtifactMainStatus(ユーザの装備のメインステータス情報)" as user_artifact_main_status {
+    * <<FK>> user_artifact_id : number : ユーザの装備ID
+    * <<FK>> status_id : number : ステータスID
+    --
+    * value : number : ステータスの数値
+}
+
+entity "UserArtifactSubStatus(ユーザの装備のサブステータス情報)" as user_artifact_sub_status {
+    * <<FK>> user_artifact_id : number : ユーザの装備ID
+    * <<FK>> status_id : number : ステータスID
+    --
+    * value : number : ステータスの数値
+}
+
+characters }|..|| elements
+characters }|..|| weapon_types
+weapons }|..|| weapon_types
+artifacts }|..|| artifact_types
+users ||..|{ user_characters
+users ||..|{ user_weapons
+users ||..|{ user_artifacts
+user_characters }|..||characters
+user_weapons }|..|| weapons
+user_artifacts }|..|{ artifacts
+user_artifacts ||..|| user_artifact_main_status
+user_artifacts ||..|{ user_artifact_sub_status
+user_artifact_main_status }|..|| status
+user_artifact_sub_status }|..|| status
+
+@enduml
