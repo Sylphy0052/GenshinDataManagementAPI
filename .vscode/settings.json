@@ -8,11 +8,11 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
         },
+        "editor.defaultFormatter": "ms-python.black-formatter",
     },
     "python.languageServer": "Pylance",
     "python.envFile": "${workspaceFolder}/.env",
     "autoDocstring.docstringFormat": "google",
-    "editor.defaultFormatter": "ms-python.black-formatter",
     "black-formatter.args": [
         "--line-length=119"
     ],
@@ -24,20 +24,30 @@
         "--max-line-length=119",
         "--ignore=E203,W503,E231,W605"
     ],
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
-    },
     "mypy-type-checker.severity": {
         "error": "Information"
     },
     "mypy-type-checker.args": [
-        "--warn-return-any",
-        "--no-implicit-optional",
-        "--disallow-untyped-calls",
+        "--allow-redefinition",
+        "--check-untyped-defs",
+        "--color-output",
+        "--disallow-incomplete-defs",
         "--disallow-untyped-defs",
         "--ignore-missing-imports",
-        "--follow-imports=skip",
-        "--strict"
+        "--implicit-reexport",
+        "--namespace-packages",
+        "--no-implicit-optional",
+        "--pretty",
+        "--show-column-numbers",
+        "--show-error-codes",
+        "--show-error-context",
+        "--show-traceback",
+        "--strict",
+        "--warn-no-return",
+        "--warn-redundant-casts",
+        "--warn-return-any",
+        "--warn-unreachable",
+        "--warn-unused-configs",
     ],
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.autoImportCompletions": true,
