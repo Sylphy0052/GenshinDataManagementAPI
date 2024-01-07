@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from api.db import Base
+from api.models.user import User  # noqa
 from api.settings import DB_URL
 
 engine = create_engine(DB_URL, echo=True)

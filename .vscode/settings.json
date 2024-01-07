@@ -10,6 +10,9 @@
         },
         "editor.defaultFormatter": "ms-python.black-formatter",
     },
+    "python.analysis.extraPaths": [
+        "./app",
+    ],
     "python.languageServer": "Pylance",
     "python.envFile": "${workspaceFolder}/.env",
     "autoDocstring.docstringFormat": "google",

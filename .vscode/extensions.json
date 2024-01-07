@@ -1,22 +1,29 @@
 {
     "recommendations": [
-        "jebbs.plantuml",
         "njpwerner.autodocstring",
         "ms-python.black-formatter",
+        "genieai.chatgpt-vscode",
+        "ms-vscode-remote.remote-containers",
+        "usernamehw.errorlens",
         "ms-python.flake8",
-        "trixnz.go-to-method",
+        "github.copilot",
+        "eamodio.gitlens",
         "oderwat.indent-rainbow",
         "ms-python.isort",
         "yzhang.markdown-all-in-one",
+        "pkief.material-icon-theme",
         "ms-python.mypy-type-checker",
-        "christian-kohler.path-intellisense",
+        "jebbs.plantuml",
         "ms-python.vscode-pylance",
         "ms-python.python",
         "njqdev.vscode-python-typehint",
+        "mechatroner.rainbow-csv",
         "ms-vscode-remote.vscode-remote-extensionpack",
         "alexcvzz.vscode-sqlite",
         "shardulm94.trailing-spaces",
+        "ms-vscode-remote.remote-wsl",
         "mosapride.zenkaku",
-        "ms-vscode-remote.remote-containers"
+        "janisdd.vscode-edit-csv",
+        "ms-azuretools.vscode-docker"
     ]
 }

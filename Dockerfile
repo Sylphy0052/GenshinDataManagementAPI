@@ -2,11 +2,11 @@
 FROM python:3.10.6
 
 # # appディレクトリのコピー
-# COPY ./app /app
+# COPY ./app/api /app/api
 
 # Poetryの設定ファイルのコピー
-COPY ./pyproject.toml /app/pyproject.toml
-COPY ./poetry.lock /app/poetry.lock
+COPY ./app/pyproject.toml /app/pyproject.toml
+COPY ./app/poetry.lock /app/poetry.lock
 
 # 環境変数の設定
 ENV PATH $PATH:/root/.local/bin
@@ -18,4 +18,4 @@ WORKDIR /app
 RUN curl -sSL https://install.python-poetry.org | python - && \
     poetry install
 
-CMD poetry run uvicorn api.main:app --host 0.0.0.0 --port 80
+# CMD ["poetry", "run", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "80"]
